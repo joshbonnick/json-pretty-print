@@ -428,21 +428,4 @@
 
     btnExpandAll.addEventListener('click', () => setAllCollapsed(false));
     btnCollapseAll.addEventListener('click', () => setAllCollapsed(true));
-
-    // Focus search on Cmd/Ctrl+F or just /
-    document.addEventListener('keydown', e => {
-        if ((e.key === 'f' && (e.metaKey || e.ctrlKey)) || e.key === '/') {
-            if (document.activeElement !== search) {
-                e.preventDefault();
-                search.focus();
-                search.select();
-            }
-        }
-        if (e.key === 'Escape' && document.activeElement === search) {
-            search.value = '';
-            searchQuery = '';
-            render();
-            search.blur();
-        }
-    });
 })();
